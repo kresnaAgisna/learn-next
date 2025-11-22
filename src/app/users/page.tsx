@@ -1,15 +1,10 @@
-import { getUsers } from "@/lib/api/user";
-import UsersTable from "./_components/UsersTable";
+import UserList from "./_components/UserList";
 
-export const revalidate = 60;
-
-export default async function UsersPage() {
-  const users = await getUsers();
-
+export default function UsersPage() {
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-4">Users</h1>
-      <UsersTable users={users} />
+    <div className="p-4 space-y-4">
+      <h1 className="text-2xl font-bold">Users</h1>
+      <UserList />
     </div>
   );
 }
