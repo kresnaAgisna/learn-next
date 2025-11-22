@@ -1,16 +1,6 @@
-import type { User } from "../types";
 import Link from "next/link";
 import { safeText } from "@/lib/safeText";
-
-async function getUser(id: string): Promise<User> {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
-    next: { revalidate: 60 },
-  });
-
-  if (!res.ok) throw new Error("Failed to fetch user");
-
-  return res.json();
-}
+import { getUser } from "@/lib/api/user";
 
 export default async function UserDetailPage({ params }: { params: { id: string } }) {
   const user = await getUser(params.id);

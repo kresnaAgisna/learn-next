@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import type { User } from "../types";
+import type { User } from "@/types/user";
 import React from "react";
 
 type Props = {

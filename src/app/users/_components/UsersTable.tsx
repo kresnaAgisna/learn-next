@@ -1,5 +1,5 @@
 // Server component — no "use client"
-import type { User } from "../types";
+import type { User } from "@/types/user";
 import UserTableRow from "./UserTableRow";
 
 type Props = {
