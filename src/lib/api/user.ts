@@ -1,6 +1,7 @@
 import type { User } from "@/types/user";
 
 export const fetchUsers = async (search: string): Promise<User[]> => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
   if (!res.ok) throw new Error("Failed to fetch users");
 
@@ -14,6 +15,8 @@ export const fetchUsers = async (search: string): Promise<User[]> => {
   );
 };
 export async function getUser(id: string): Promise<User> {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
     next: { revalidate: 60 },
   });
@@ -21,3 +24,4 @@ export async function getUser(id: string): Promise<User> {
   if (!res.ok) throw new Error("Failed to fetch user");
   return res.json();
 }
+

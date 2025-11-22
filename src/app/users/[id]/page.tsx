@@ -1,17 +1,26 @@
-import Link from "next/link";
 import { safeText } from "@/lib/safeText";
 import { getUser } from "@/lib/api/user";
+import BackLink from "../_components/BackLink";
 
 export default async function UserDetailPage({ params }: { params: { id: string } }) {
-  const user = await getUser(params.id);
+  let user;
+
+  try {
+    user = await getUser(params.id);
+  } catch {
+    return (
+      <div className="p-4 text-red-600">
+        Failed to load user details.
+        <BackLink />
+      </div>
+    );
+  }
 
   return (
-    <div className="space-y-6">
-      <Link href="/users" className="text-blue-600 underline">
-        ← Back to list
-      </Link>
+    <div className="space-y-6 p-4">
+      <BackLink />
 
-      <div className="p-6 rounded-lg border shadow-sm bg-white">
+      <div className="p-6 rounded-lg border shadow-sm bg-white max-w-md">
         <h1 className="text-2xl font-bold mb-4">{safeText(user.name)}</h1>
 
         <div className="space-y-2">

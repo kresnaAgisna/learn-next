@@ -23,9 +23,9 @@ export default function UserTableRow({ user }: Props) {
         }
       }}
     >
-      <td className="p-2">{user.id}</td>
       <td className="p-2">{user.name}</td>
       <td className="p-2">{user.email}</td>
+      <td className="p-2">{user.website}</td>
     </tr>
   );
 }

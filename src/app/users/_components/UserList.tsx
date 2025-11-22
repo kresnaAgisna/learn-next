@@ -17,7 +17,7 @@ export default function UserList() {
     () => fetchUsers(debouncedQuery)
   );
 
-  // sort users by name
+  // Sort users alphabetically by name
   const sortedUsers = users
     ? [...users].sort((a, b) => {
         const nameA = a.name.toLowerCase();
@@ -36,16 +36,13 @@ export default function UserList() {
         className="border rounded px-3 py-2 w-full sm:w-64"
       />
 
-      {isLoading && <p>Loading...</p>}
-      {error && <p className="text-red-600">Failed to load users</p>}
-
-      {users && (
-        <UsersTable
-          users={sortedUsers}
-          sortAsc={sortAsc}
-          onToggleSort={() => setSortAsc(!sortAsc)}
-        />
-      )}
+      <UsersTable
+        users={sortedUsers}
+        sortAsc={sortAsc}
+        onToggleSort={() => setSortAsc(!sortAsc)}
+        loading={isLoading}
+        error={error}
+      />
     </div>
   );
 }
