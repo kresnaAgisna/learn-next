@@ -33,15 +33,12 @@ export default function UsersTable({ users, sortAsc, onToggleSort, loading, erro
             Array.from({ length: 3 }).map((_, idx) => (
               <tr key={idx}>
                 <td className="p-2">
-                  {" "}
                   <Skeleton className="h-6 w-2/4" />
                 </td>
                 <td className="p-2">
-                  {" "}
                   <Skeleton className="h-6 w-2/4" />
                 </td>
                 <td className="p-2">
-                  {" "}
                   <Skeleton className="h-6 w-2/4" />
                 </td>
               </tr>
