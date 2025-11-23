@@ -4,8 +4,8 @@ import { useState } from "react";
 import useSWR from "swr";
 import type { User } from "@/types/user";
 import UsersTable from "./UsersTable";
-import { useDebounce } from "@/lib/hooks/useDebouce";
 import { fetchUsers } from "@/lib/api/user";
+import useDebounce from "@/lib/hooks/useDebouce";
 
 export default function UserList() {
   const [query, setQuery] = useState("");

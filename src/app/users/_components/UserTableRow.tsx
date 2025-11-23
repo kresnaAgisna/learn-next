@@ -22,6 +22,7 @@ export default function UserTableRow({ user }: Props) {
           router.push(`/users/${user.id}`);
         }
       }}
+      data-testid={`user-row-${user.id}`}
     >
       <td className="p-2">{user.name}</td>
       <td className="p-2">{user.email}</td>
